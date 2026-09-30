@@ -31,9 +31,10 @@ body {
   color: inherit;
 }
 
-/* TODO: dale layout a .personajes-grid con CSS Grid o con Flexbox.
-   Compara las dos versiones en "Grid vs Flex" antes de decidir cuál usar aquí. */
 .personajes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+  gap: 16px;
 }
 
 .personaje-card {
@@ -50,4 +51,13 @@ body {
 .personaje-card h3,
 .personaje-card p {
   margin: 8px 12px;
+}
+
+button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #172033;
+  color: inherit;
+  cursor: pointer;
 }
