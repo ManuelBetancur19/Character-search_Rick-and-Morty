@@ -17,34 +17,13 @@ function filtrarPorEspecie(personajes, especie) {
   });
 }
 
-/* // map: obtener solo los nombres
-function obtenerNombres(personajes) {
-  return personajes.map(function (personaje) {
-    return personaje.name;
-  });
-}
-*
-// buscar personaje por nombre exacto
-function buscarPorNombre(personajes, nombre) {
-  return personajes.find(function (personaje) {
-    return personaje.name === nombre;
-  });
-}
-*/
 // comprobar si hay personajes muertos
 function hayPersonajesMuertos(personajes) {
   return personajes.some(function (personaje) {
     return personaje.status === "Dead";
   });
 }
-/*
-// comprueba si todos estan vivos
-function todosVivos(personajes) {
-  return personajes.every(function (personaje) {
-    return personaje.status === "Alive";
-  });
-}
-*/
+
 // ordenar alfabeticamente por nombre
 function ordenarPorNombre(personajes) {
   return [...personajes].sort(function (a, b) {
@@ -56,12 +35,7 @@ function ordenarPorNombre(personajes) {
 function primeros(personajes, cantidad) {
   return personajes.slice(0, cantidad);
 }
-/*
-// posicion del nombre
-function posicionDeNombre(nombres, nombre) {
-  return nombres.indexOf(nombre);
-}
-*/
+
 // contar cuantas personas estan vivas
 function contarVivos(personajes) {
   return personajes.reduce(function (total, personaje) {
