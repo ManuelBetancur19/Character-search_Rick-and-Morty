@@ -30,14 +30,14 @@ function buscarPorNombre(personajes, nombre) {
     return personaje.name === nombre;
   });
 }
-/* 
+*/
 // comprobar si hay personajes muertos
 function hayPersonajesMuertos(personajes) {
   return personajes.some(function (personaje) {
     return personaje.status === "Dead";
   });
 }
-
+/*
 // comprueba si todos estan vivos
 function todosVivos(personajes) {
   return personajes.every(function (personaje) {
@@ -61,13 +61,13 @@ function primeros(personajes, cantidad) {
 function posicionDeNombre(nombres, nombre) {
   return nombres.indexOf(nombre);
 }
-
+*/
 // contar cuantas personas estan vivas
 function contarVivos(personajes) {
   return personajes.reduce(function (total, personaje) {
     return personaje.status === "Alive" ? total + 1 : total;;
   }, 0);
-} */
+}
 
 let personajes = [];
 let ordenarAZ = false;
@@ -95,11 +95,19 @@ function aplicarFiltros() {
 function pintarResultados(lista) {
   const contenedor = document.querySelector("#resultados");
   document.querySelector("#contador").textContent = lista.length + " personajes encontrados";
+  document.querySelector("#aviso-muertos").hidden = !hayPersonajesMuertos(lista);
+
+  const vivos = contarVivos(lista);
+  const muertos = lista.filter(function (p) { return p.status === "Dead"; }).length;
+  const desconocidos = lista.filter(function (p) { return p.status === "unknown"; }).length;
+
+  document.querySelector("#resumen").textContent = vivos + " vivos · " + muertos + " muertos · " + desconocidos + " desconocidos";
 
   contenedor.innerHTML = lista
-    .map(function (personaje) {
+    .map(function (personaje, i) {
       return (
         '<article class="personaje-card">' +
+        '<span class="numero">#' + (i + 1) + "</span>" +
         '<img src="' + personaje.image + '" alt="' + personaje.name + '" />' +
         "<h3>" + personaje.name + "</h3>" +
         "<p>" + personaje.status + " · " + personaje.species + "</p>" +

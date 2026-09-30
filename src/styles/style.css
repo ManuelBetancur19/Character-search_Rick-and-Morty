@@ -41,6 +41,28 @@ body {
   background: #172033;
   border-radius: 12px;
   overflow: hidden;
+  position: relative;
+  position: relative;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.personaje-card:hover {
+  transform: translateY(-6px);
+  border-color: #b6f28a;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+}
+
+.numero {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #b6f28a;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .personaje-card img {
@@ -60,4 +82,28 @@ button {
   background: #172033;
   color: inherit;
   cursor: pointer;
+}
+
+.aviso {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #4a2530;
+  color: #ffb3b3;
+  font-size: 14px;
+}
+.aviso[hidden] {
+  display: none;
+}
+
+.resumen-fila {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+#resumen {
+  margin: 4px 0;
+  color: #9aa4b8;
 }
